@@ -1,0 +1,7 @@
+### 查询服务实例信息
+GET http://127.0.0.1:9000/nacos-client/service-instance?serviceId=gateway-test
+Accept: application/json
+
+### 查询用户信息
+GET http://localhost:9000/user/1
+Accept: application/json
