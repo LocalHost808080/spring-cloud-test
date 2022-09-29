@@ -1,0 +1,15 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /nacos-client-test
+
+spring:
+  application:
+    name: nacos-client   # 应用名称也是构成 Nacos 配置管理 dataId 字段的一部分 (当 config.prefix 为空时)
+  cloud:
+    nacos:
+      # 服务注册发现
+      discovery:
+        enabled: true   # 如果不想使用 Nacos 进行服务注册和发现, 设置为 false 即可
+        server-addr: 127.0.0.1:8848
+        namespace: 87b914fd-4d41-456c-8bd3-3725272eebba

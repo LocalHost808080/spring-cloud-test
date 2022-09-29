@@ -1,0 +1,3 @@
+### 查询用户信息
+GET http://localhost:7000/user-service-test/user/1
+Accept: application/json

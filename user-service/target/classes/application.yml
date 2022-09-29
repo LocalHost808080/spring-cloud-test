@@ -1,0 +1,14 @@
+server:
+  port: 7000
+  servlet:
+    context-path: /user-service-test
+
+spring:
+  application:
+    name: user-service
+  cloud:
+    nacos:
+      discovery:
+        enabled: true     # 如果不想使用 Nacos 进行服务注册和发现, 设置为 false 即可
+        server-addr: 127.0.0.1:8848   # Nacos 服务器地址
+        namespace: 87b914fd-4d41-456c-8bd3-3725272eebba

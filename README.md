@@ -33,7 +33,7 @@
 
 <img src="media/README.assets/image-20220929%E4%B8%8B%E5%8D%8872103388.png" alt="image-20220929下午72103388" style="zoom:33%;" />
 
-4. 在 Nacos UI 的 配置管理-配置列表 的 `spring -cloud-test` 命名空间下新增配置：
+4. 在 Nacos UI 的 配置管理-配置列表 的 `spring-cloud-test` 命名空间下新增配置：
    1. Data ID: `gateway-router`
    2. Group: `test`
 5. 在配置中添加 YAML 格式配置并发布：
