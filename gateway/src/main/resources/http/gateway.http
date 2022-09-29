@@ -1,5 +1,5 @@
 ### 查询服务实例信息
-GET http://127.0.0.1:9000/nacos-client/service-instance?serviceId=gateway-test
+GET http://127.0.0.1:9000/nacos-client/service-instance?serviceId=gateway
 Accept: application/json
 
 ### 查询用户信息

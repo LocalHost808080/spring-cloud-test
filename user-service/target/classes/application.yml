@@ -1,11 +1,11 @@
 server:
   port: 7000
   servlet:
-    context-path: /user-service-test-xkb
+    context-path: /user-service-test
 
 spring:
   application:
-    name: user-service-test
+    name: user-service
   cloud:
     nacos:
       discovery:
