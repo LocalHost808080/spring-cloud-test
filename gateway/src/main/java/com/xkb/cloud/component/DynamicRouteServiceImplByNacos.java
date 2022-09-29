@@ -1,7 +1,6 @@
 package com.xkb.cloud.component;
 
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.config.listener.Listener;
@@ -13,7 +12,6 @@ import com.xkb.cloud.config.GatewayConfig;
 import com.xkb.cloud.service.DynamicRouteServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
@@ -64,16 +62,7 @@ public class DynamicRouteServiceImplByNacos {
             );
 
             log.info("get current gateway config: \n{}", configInfo);
-            List<RouteDefinition> definitionList = configParsing(configInfo);
-
-            // List<RouteDefinition> definitionList =
-            //         new ObjectMapper().readerFor(new TypeReference<List<RouteDefinition>>(){}).readValue(configInfo);
-
-            // List<RouteDefinition> definitionList =
-            //         new ObjectMapper().convertValue(configInfo, new TypeReference<List<RouteDefinition>>() {});
-
-            // List<RouteDefinition> definitionList =
-            // JSON.parseArray(configInfo, RouteDefinition.class);
+            List<RouteDefinition> definitionList = configInfoParsing(configInfo);
 
             if (CollectionUtils.isNotEmpty(definitionList)) {
                 for (RouteDefinition definition : definitionList) {
@@ -131,10 +120,7 @@ public class DynamicRouteServiceImplByNacos {
                 public void receiveConfigInfo(String configInfo) {
 
                     log.info("start to update config: \n{}", configInfo);
-                    List<RouteDefinition> definitionList = configParsing(configInfo);
-
-                    // List<RouteDefinition> definitionList =
-                    //         JSON.parseArray(configInfo, RouteDefinition.class);
+                    List<RouteDefinition> definitionList = configInfoParsing(configInfo);
 
                     log.info("update route: [{}]", definitionList.toString());
                     dynamicRouteService.updateList(definitionList);
@@ -145,7 +131,7 @@ public class DynamicRouteServiceImplByNacos {
         }
     }
 
-    private List<RouteDefinition> configParsing(String configInfo) {
+    private List<RouteDefinition> configInfoParsing(String configInfo) {
 
         try {
             Object configInfoObj = new ObjectMapper(new YAMLFactory()).readValue(configInfo, Object.class);
