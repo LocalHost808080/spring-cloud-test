@@ -15,21 +15,21 @@ spring:
         namespace: 87b914fd-4d41-456c-8bd3-3725272eebba
 
     # 静态路由
-    gateway:
-      routes:
-        - id: user-service      # 路由的ID
-          uri: http://localhost:7000   # 匹配后路由地址
-          predicates:         # 断言, 路径相匹配的进行路由
-            - Path=/user/**
-          filters:
-            - PrefixPath=/user-service-test
-
-        - id: nacos-client
-          uri: http://localhost:8000
-          predicates:
-            - Path=/nacos-client/**
-          filters:
-            - PrefixPath=/nacos-client-test
+#    gateway:
+#      routes:
+#        - id: user-service      # 路由的ID
+#          uri: http://localhost:7000   # 匹配后路由地址
+#          predicates:         # 断言, 路径相匹配的进行路由
+#            - Path=/user/**
+#          filters:
+#            - PrefixPath=/user-service-test
+#
+#        - id: nacos-client
+#          uri: http://localhost:8000
+#          predicates:
+#            - Path=/nacos-client/**
+#          filters:
+#            - PrefixPath=/nacos-client-test
 
   main:
     web-application-type: reactive
