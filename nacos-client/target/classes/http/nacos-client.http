@@ -1,3 +1,0 @@
-### 查询服务实例信息
-GET http://127.0.0.1:8000/nacos-client-test/nacos-client/service-instance
-Accept: application/json
